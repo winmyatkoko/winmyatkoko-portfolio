@@ -1017,15 +1017,15 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 48px;
-  height: 120px;
+  padding: 0 56px;
+  height: 160px;
   flex-shrink: 0;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 .ticker-item img {
-  height: 64px;
+  height: 100px;
   width: auto;
-  max-width: 160px;
+  max-width: 220px;
   object-fit: contain;
   filter: grayscale(20%) brightness(1.1);
   opacity: 0.9;
@@ -1038,12 +1038,12 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 }
 @media (max-width: 768px) {
   .ticker-item {
-    padding: 0 32px;
-    height: 90px;
+    padding: 0 36px;
+    height: 120px;
   }
   .ticker-item img {
-    height: 48px;
-    max-width: 120px;
+    height: 72px;
+    max-width: 160px;
   }
   .ticker-wrapper::before,
   .ticker-wrapper::after {
