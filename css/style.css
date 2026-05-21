@@ -1,20 +1,20 @@
 /* ============================================
-   WIN MYAT KO KO — Design System
+   WIN MYAT KO KO â€” Design System
    Minimal. Intelligent. Intentional.
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
-/* ── Variables ── */
+/* â”€â”€ Variables â”€â”€ */
 :root {
   --black:       #0C0C0C;
   --black-2:     #141414;
   --black-3:     #1C1C1C;
   --black-4:     #242424;
   --white:       #F5F3EE;
-  --white-2:     #E8E5DE;
-  --muted:       #6B6860;
-  --muted-2:     #4A4845;
+  --white-2:     #F0EDE6;
+  --muted:       #8A8780;
+  --muted-2:     #5A5855;
   --yellow:      #E8B84B;
   --yellow-dim:  #C49A35;
 
@@ -28,7 +28,7 @@
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
-/* ── Reset ── */
+/* â”€â”€ Reset â”€â”€ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body {
@@ -44,7 +44,7 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 
-/* ── Typography ── */
+/* â”€â”€ Typography â”€â”€ */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -55,9 +55,9 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 5rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 h4 { font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
+p { color: #C8C5BE; font-weight: 300; max-width: 64ch; }
 
-/* ── Layout ── */
+/* â”€â”€ Layout â”€â”€ */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -66,7 +66,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 @media (max-width: 768px) { .container { padding: 0 24px; } }
 
-/* ── Navigation ── */
+/* â”€â”€ Navigation â”€â”€ */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -183,7 +183,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   }
 }
 
-/* ── Hero ── */
+/* â”€â”€ Hero â”€â”€ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -291,7 +291,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .btn-ghost:hover { color: var(--white); border-color: var(--white-2); }
 
-/* ── Impact Strip ── */
+/* â”€â”€ Impact Strip â”€â”€ */
 .impact-strip {
   background: var(--black-2);
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -322,6 +322,8 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 8px;
+  font-feature-settings: "tnum" 1, "ss01" 0, "ss02" 0;
+  font-variant-numeric: tabular-nums;
 }
 .impact-label {
   font-size: 0.8rem;
@@ -336,7 +338,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   .impact-item + .impact-item::before { display: none; }
 }
 
-/* ── Section Base ── */
+/* â”€â”€ Section Base â”€â”€ */
 .section { padding: 100px 0; }
 .section-label {
   display: inline-flex;
@@ -364,7 +366,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   color: var(--muted);
 }
 
-/* ── Work Cards ── */
+/* â”€â”€ Work Cards â”€â”€ */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -428,6 +430,8 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1, "ss01" 0, "ss02" 0;
+  font-variant-numeric: tabular-nums;
 }
 .work-card-result-label {
   font-size: 0.75rem;
@@ -452,7 +456,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .work-card:hover .work-card-arrow svg path { stroke: var(--black); }
 
-/* ── Positioning Section ── */
+/* â”€â”€ Positioning Section â”€â”€ */
 .positioning {
   padding: 100px 0;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -491,7 +495,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .positioning-link:hover { border-color: var(--yellow); gap: 12px; }
 
-/* ── Contact CTA ── */
+/* â”€â”€ Contact CTA â”€â”€ */
 .contact-cta {
   padding: 120px 0;
   text-align: center;
@@ -526,7 +530,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .contact-email:hover { color: var(--yellow); border-color: var(--yellow); gap: 14px; }
 
-/* ── Footer ── */
+/* â”€â”€ Footer â”€â”€ */
 .footer {
   padding: 32px 0;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -553,7 +557,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .footer-links a:hover { color: var(--white); }
 
-/* ── Scroll reveal ── */
+/* â”€â”€ Scroll reveal â”€â”€ */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -567,13 +571,13 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
-/* ── Animations ── */
+/* â”€â”€ Animations â”€â”€ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Cursor dot ── */
+/* â”€â”€ Cursor dot â”€â”€ */
 .cursor-dot {
   position: fixed;
   width: 6px; height: 6px;
@@ -587,7 +591,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 @media (max-width: 768px) { .cursor-dot { display: none; } }
 
-/* ── Page header (inner pages) ── */
+/* â”€â”€ Page header (inner pages) â”€â”€ */
 .page-header {
   padding: 160px 0 80px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -600,7 +604,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   max-width: 56ch;
 }
 
-/* ── About page ── */
+/* â”€â”€ About page â”€â”€ */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -704,7 +708,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .cv-download:hover { background: var(--yellow); color: var(--black); }
 
-/* ── Work / Case Study page ── */
+/* â”€â”€ Work / Case Study page â”€â”€ */
 .work-index { padding: 60px 0 100px; }
 .work-row {
   display: flex;
@@ -789,6 +793,8 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
   letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 10px;
+  font-feature-settings: "tnum" 1, "ss01" 0, "ss02" 0;
+  font-variant-numeric: tabular-nums;
 }
 .result-card-label {
   font-size: 0.8rem;
@@ -814,12 +820,12 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 .case-body p {
   font-size: 0.975rem;
   line-height: 1.85;
-  color: var(--white-2);
+  color: #C8C5BE;
   margin-bottom: 16px;
   max-width: none;
 }
 
-/* ── Thinking page ── */
+/* â”€â”€ Thinking page â”€â”€ */
 .thinking-grid { padding: 64px 0 100px; }
 .article-card {
   display: block;
@@ -868,7 +874,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .article-card:hover .article-read { color: var(--yellow); gap: 10px; }
 
-/* ── Contact page ── */
+/* â”€â”€ Contact page â”€â”€ */
 .contact-page { padding: 80px 0 100px; }
 .contact-grid {
   display: grid;
@@ -947,7 +953,7 @@ p { color: var(--white-2); font-weight: 300; max-width: 64ch; }
 }
 .form-submit:hover { background: var(--yellow-dim); transform: translateY(-1px); }
 
-/* ── Utility ── */
+/* â”€â”€ Utility â”€â”€ */
 .text-yellow { color: var(--yellow); }
 .text-muted { color: var(--muted); }
 .divider {
