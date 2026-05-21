@@ -98,86 +98,162 @@
     const cv = document.getElementById('hero-map');
     if (!cv) return;
     const ctx = cv.getContext('2d');
-    function resize() { cv.width = cv.offsetWidth; cv.height = cv.offsetHeight; }
+
+    function resize() {
+      cv.width = cv.offsetWidth;
+      cv.height = cv.offsetHeight;
+    }
     resize();
     window.addEventListener('resize', resize);
 
-    const LON_MIN = 60, LON_MAX = 182, LAT_MIN = -50, LAT_MAX = 38;
+    // Tighter bounds — crop to actual footprint, leaving generous padding
+    const LON_MIN = 62, LON_MAX = 180, LAT_MIN = -48, LAT_MAX = 36;
+    const PAD_X = 48, PAD_Y = 40;
+
     function proj(lon, lat) {
       const w = cv.width, h = cv.height;
       return {
-        x: 32 + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * (w - 48),
-        y: 24 + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * (h - 60),
+        x: PAD_X + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * (w - PAD_X * 2),
+        y: PAD_Y + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * (h - PAD_Y * 2),
       };
     }
 
     const locations = [
       { name: 'Myanmar',     lon: 96.2,  lat: 19.8  },
-      { name: 'Thailand',    lon: 100.5, lat: 15.9  },
+      { name: 'Thailand',    lon: 100.5, lat: 13.8  },
       { name: 'India',       lon: 78.9,  lat: 20.6  },
       { name: 'Bangladesh',  lon: 90.4,  lat: 23.7  },
-      { name: 'Indonesia',   lon: 113.9, lat: -5.1  },
+      { name: 'Indonesia',   lon: 117.0, lat: -4.0  },
       { name: 'Philippines', lon: 122.6, lat: 12.9  },
-      { name: 'Australia',   lon: 134.5, lat: -25.3 },
+      { name: 'Australia',   lon: 134.5, lat: -26.0 },
       { name: 'New Zealand', lon: 172.5, lat: -41.3 },
       { name: 'Pakistan',    lon: 69.3,  lat: 30.4  },
-      { name: 'Vietnam',     lon: 106.0, lat: 16.2  },
+      { name: 'Vietnam',     lon: 108.0, lat: 14.0  },
       { name: 'Singapore',   lon: 103.8, lat: 1.3   },
-      { name: 'Cambodia',    lon: 104.9, lat: 12.6  },
-      { name: 'Laos',        lon: 102.5, lat: 18.2  },
+      { name: 'Cambodia',    lon: 104.9, lat: 11.5  },
+      { name: 'Laos',        lon: 102.5, lat: 20.0  },
     ];
+
+    // Label config: lx/ly = label anchor offset from dot, lx2/ly2 = connector elbow
+    // Using explicit callout-line style: short line from dot to clear label position
+    const labels = {
+      'Myanmar':     { lx: -14, ly: -28, anchor: 'right'  },
+      'Thailand':    { lx: -52, ly:  22, anchor: 'right'  },
+      'India':       { lx: -18, ly: -28, anchor: 'right'  },
+      'Bangladesh':  { lx:  14, ly: -28, anchor: 'left'   },
+      'Indonesia':   { lx:  14, ly:  28, anchor: 'left'   },
+      'Philippines': { lx:  14, ly: -14, anchor: 'left'   },
+      'Australia':   { lx:  14, ly:  30, anchor: 'left'   },
+      'New Zealand': { lx:  14, ly: -14, anchor: 'left'   },
+      'Pakistan':    { lx: -14, ly: -28, anchor: 'right'  },
+      'Vietnam':     { lx:  52, ly:  14, anchor: 'left'   },
+      'Singapore':   { lx:  14, ly:  28, anchor: 'left'   },
+      'Cambodia':    { lx:  52, ly: -14, anchor: 'left'   },
+      'Laos':        { lx: -14, ly: -28, anchor: 'right'  },
+    };
 
     const connections = [[0,1],[0,3],[0,2],[1,4],[1,5],[1,9],[2,3],[2,8],[4,5],[4,6],[5,6],[6,7],[1,6],[1,10],[1,11],[1,12],[9,11],[0,12],[10,4],[11,9]];
 
     const landDots = [[62,28],[64,30],[66,32],[68,30],[70,28],[72,26],[68,26],[64,26],[66,28],[70,30],[72,30],[74,28],[69,34],[71,34],[67,32],[63,30],[72,22],[74,20],[76,18],[78,16],[80,14],[80,12],[78,10],[76,8],[74,8],[72,8],[74,10],[76,12],[78,12],[80,10],[82,12],[84,14],[84,16],[82,18],[80,18],[78,18],[76,16],[80,20],[82,20],[84,20],[86,22],[88,24],[86,26],[84,26],[82,26],[80,24],[78,24],[76,22],[74,20],[72,18],[74,16],[76,14],[74,12],[76,10],[78,8],[84,28],[86,28],[88,28],[90,26],[88,26],[86,24],[84,24],[82,24],[88,24],[90,24],[92,24],[90,22],[92,22],[91,26],[92,28],[94,26],[96,24],[96,22],[96,20],[96,18],[96,16],[96,14],[97,12],[98,22],[98,20],[98,18],[94,22],[94,20],[94,18],[92,22],[92,20],[100,16],[100,14],[98,12],[96,10],[98,18],[100,18],[102,18],[104,18],[102,16],[100,16],[102,14],[100,12],[100,10],[100,8],[100,6],[102,6],[104,6],[103,4],[104,22],[106,20],[108,18],[106,16],[106,14],[106,12],[108,10],[108,8],[106,8],[104,14],[104,12],[104,10],[102,22],[104,20],[104,18],[102,18],[100,20],[106,22],[108,22],[107,20],[109,18],[108,16],[107,14],[102,14],[104,14],[106,14],[106,12],[104,12],[102,12],[102,10],[104,10],[106,10],[104,13],[103,12],[105,12],[103,14],[100,20],[102,20],[104,20],[102,18],[100,18],[102,16],[104,16],[102,14],[100,22],[102,22],[101,20],[103,18],[101,16],[104,2],[104,0],[102,2],[110,4],[112,4],[114,4],[116,6],[114,6],[112,6],[110,6],[116,4],[118,4],[118,6],[116,6],[120,18],[122,16],[120,14],[122,12],[120,10],[122,8],[124,8],[124,10],[126,8],[125,7],[122,6],[120,12],[118,10],[120,8],[122,10],[124,6],[126,10],[128,8],[126,6],[124,12],[122,14],[120,16],[106,-6],[108,-6],[110,-6],[112,-6],[114,-8],[116,-8],[118,-8],[106,-8],[108,-8],[110,-8],[112,-8],[114,-6],[116,-6],[96,-4],[98,-4],[100,-2],[102,-2],[104,-4],[106,-4],[104,-2],[102,0],[100,0],[98,-2],[96,-2],[98,0],[100,2],[102,2],[104,0],[108,0],[110,0],[112,2],[114,2],[116,2],[118,2],[116,0],[114,0],[112,0],[110,-2],[112,-2],[114,-2],[116,-2],[118,0],[116,4],[114,4],[120,0],[122,0],[122,-2],[120,-2],[124,0],[124,-2],[122,2],[120,2],[132,-4],[134,-4],[136,-6],[138,-6],[140,-6],[138,-4],[136,-4],[134,-2],[132,-2],[130,-2],[130,-4],[128,-4],[128,-2],[126,-2],[126,-4],[124,-4],[114,-22],[116,-22],[118,-20],[120,-20],[122,-22],[124,-22],[126,-24],[128,-24],[130,-26],[132,-26],[134,-28],[136,-30],[138,-30],[140,-28],[142,-28],[144,-26],[146,-26],[148,-28],[150,-30],[152,-28],[150,-26],[148,-24],[146,-22],[144,-20],[142,-18],[140,-18],[138,-16],[136,-14],[134,-14],[132,-16],[130,-18],[128,-20],[126,-22],[124,-20],[122,-20],[120,-22],[118,-22],[116,-22],[114,-20],[130,-22],[132,-24],[134,-26],[136,-26],[138,-28],[140,-26],[142,-24],[144,-24],[146,-24],[148,-26],[144,-28],[140,-30],[136,-32],[132,-30],[128,-28],[124,-26],[120,-24],[116,-24],[132,-32],[136,-34],[140,-34],[144,-32],[148,-30],[170,-44],[172,-42],[174,-40],[172,-38],[170,-36],[168,-46],[170,-46],[174,-38],[176,-40],[174,-36],[172,-34],[174,-34],[176,-38],[96,30],[98,30],[100,32],[102,32],[104,34],[106,32],[108,30],[110,28],[112,28],[114,26],[116,26],[118,28],[120,28],[114,28],[112,26],[110,24],[112,22],[114,22],[116,22],[118,24],[120,24],[104,24],[102,26],[100,28],[98,28],[96,28],[94,28],[92,28],[90,28],[88,28],[86,28],[84,28],[130,32],[132,34],[134,36],[136,36],[138,38],[140,38],[142,40],[140,36],[138,36],[136,34],[134,32],[130,30],[132,32],[128,30],[130,28]];
 
-    const offsets = { 'Myanmar':{dx:10,dy:0,a:'left'},'Thailand':{dx:-10,dy:0,a:'right'},'India':{dx:-10,dy:0,a:'right'},'Bangladesh':{dx:10,dy:0,a:'left'},'Indonesia':{dx:0,dy:12,a:'center'},'Philippines':{dx:10,dy:0,a:'left'},'Australia':{dx:0,dy:12,a:'center'},'New Zealand':{dx:10,dy:0,a:'left'},'Pakistan':{dx:-10,dy:0,a:'right'},'Vietnam':{dx:10,dy:0,a:'left'},'Singapore':{dx:10,dy:0,a:'left'},'Cambodia':{dx:10,dy:0,a:'left'},'Laos':{dx:-10,dy:0,a:'right'} };
-
-    const travelers = connections.map(([a,b]) => ({ a, b, t: Math.random(), speed: 0.0015 + Math.random() * 0.002, rev: Math.random() > 0.5 }));
+    const travelers = connections.map(([a,b]) => ({
+      a, b,
+      t: Math.random(),
+      speed: 0.0012 + Math.random() * 0.0018,
+      rev: Math.random() > 0.5
+    }));
     const pulseFrames = locations.map((_, i) => i * 14);
 
     function draw() {
       const w = cv.width, h = cv.height;
       ctx.clearRect(0, 0, w, h);
+
+      // Land dots
       landDots.forEach(([lon, lat]) => {
         const p = proj(lon, lat);
         if (p.x < 0 || p.x > w || p.y < 0 || p.y > h) return;
-        ctx.beginPath(); ctx.arc(p.x, p.y, 0.9, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(232,184,75,0.14)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, 1.1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(232,184,75,0.13)'; ctx.fill();
       });
+
+      // Connection arcs
       connections.forEach(([a, b]) => {
         const pa = proj(locations[a].lon, locations[a].lat);
         const pb = proj(locations[b].lon, locations[b].lat);
         const mx = (pa.x + pb.x) / 2;
-        const my = (pa.y + pb.y) / 2 - Math.hypot(pb.x-pa.x, pb.y-pa.y) * 0.18;
+        const my = (pa.y + pb.y) / 2 - Math.hypot(pb.x - pa.x, pb.y - pa.y) * 0.18;
         ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.quadraticCurveTo(mx, my, pb.x, pb.y);
-        ctx.strokeStyle = 'rgba(232,184,75,0.07)'; ctx.lineWidth = 0.5; ctx.stroke();
+        ctx.strokeStyle = 'rgba(232,184,75,0.09)'; ctx.lineWidth = 0.6; ctx.stroke();
       });
+
+      // Traveling dots
       travelers.forEach(tr => {
         tr.t += tr.speed; if (tr.t > 1) tr.t = 0;
         const a = locations[tr.a], b = locations[tr.b];
         const pa = proj(a.lon, a.lat), pb = proj(b.lon, b.lat);
         const prog = tr.rev ? 1 - tr.t : tr.t;
-        const mx = (pa.x + pb.x) / 2, my = (pa.y + pb.y) / 2 - Math.hypot(pb.x-pa.x, pb.y-pa.y) * 0.18;
+        const mx = (pa.x + pb.x) / 2, my = (pa.y + pb.y) / 2 - Math.hypot(pb.x - pa.x, pb.y - pa.y) * 0.18;
         const px = (1-prog)*(1-prog)*pa.x + 2*(1-prog)*prog*mx + prog*prog*pb.x;
         const py = (1-prog)*(1-prog)*pa.y + 2*(1-prog)*prog*my + prog*prog*pb.y;
-        ctx.beginPath(); ctx.arc(px, py, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(232,184,75,' + (Math.sin(tr.t * Math.PI) * 0.85) + ')'; ctx.fill();
+        ctx.beginPath(); ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(232,184,75,' + (Math.sin(tr.t * Math.PI) * 0.9) + ')'; ctx.fill();
       });
+
+      // Location dots + pulse + callout labels
       locations.forEach((loc, i) => {
-        const p = proj(loc.lon, loc.lat); pulseFrames[i]++;
-        [0, 70].forEach(offset => {
-          const lf = (pulseFrames[i] + offset) % 160, progress = lf / 160;
-          ctx.beginPath(); ctx.arc(p.x, p.y, progress * 20, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(232,184,75,' + ((1-progress)*0.35) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
+        const p = proj(loc.lon, loc.lat);
+        pulseFrames[i]++;
+
+        // Pulse rings
+        [0, 75].forEach(offset => {
+          const lf = (pulseFrames[i] + offset) % 170, progress = lf / 170;
+          ctx.beginPath(); ctx.arc(p.x, p.y, progress * 22, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(232,184,75,' + ((1 - progress) * 0.3) + ')';
+          ctx.lineWidth = 0.5; ctx.stroke();
         });
-        ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI * 2); ctx.fillStyle = '#1C1C1C'; ctx.fill();
-        ctx.strokeStyle = 'rgba(232,184,75,0.7)'; ctx.lineWidth = 1; ctx.stroke();
-        ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fillStyle = '#E8B84B'; ctx.fill();
-        const off = offsets[loc.name] || {dx:0,dy:-12,a:'center'};
-        ctx.font = '500 10px Poppins, sans-serif'; ctx.textAlign = off.a; ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'rgba(245,243,238,0.75)'; ctx.fillText(loc.name, p.x + off.dx, p.y + off.dy);
+
+        // Dot
+        ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#1C1C1C'; ctx.fill();
+        ctx.strokeStyle = 'rgba(232,184,75,0.75)'; ctx.lineWidth = 1.2; ctx.stroke();
+        ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = '#E8B84B'; ctx.fill();
+
+        // Callout line + label
+        const lb = labels[loc.name];
+        if (!lb) return;
+        const lx = p.x + lb.lx;
+        const ly = p.y + lb.ly;
+
+        // Short connector line from dot edge toward label
+        const angle = Math.atan2(lb.ly, lb.lx);
+        const startX = p.x + Math.cos(angle) * 6;
+        const startY = p.y + Math.sin(angle) * 6;
+
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(lx, ly);
+        ctx.strokeStyle = 'rgba(232,184,75,0.22)';
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+
+        // Label text
+        ctx.font = '500 9.5px Poppins, sans-serif';
+        ctx.textAlign = lb.anchor;
+        ctx.textBaseline = 'middle';
+
+        // Dark bg for readability
+        const metrics = ctx.measureText(loc.name);
+        const tw = metrics.width;
+        const th = 13;
+        const bx = lb.anchor === 'left' ? lx - 2 : lx - tw - 2;
+        ctx.fillStyle = 'rgba(12,12,12,0.55)';
+        ctx.fillRect(bx, ly - th / 2 - 1, tw + 4, th + 2);
+
+        ctx.fillStyle = 'rgba(245,243,238,0.88)';
+        ctx.fillText(loc.name, lx, ly);
       });
+
       requestAnimationFrame(draw);
     }
     draw();

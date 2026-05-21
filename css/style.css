@@ -1141,31 +1141,31 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 .hero-map-counter {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 32px;
+  font-size: 18px;
   color: var(--yellow);
   letter-spacing: -0.03em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .hero-map-divider {
-  width: 1px; height: 36px;
+  width: 1px; height: 24px;
   background: rgba(232,184,75,0.2);
   flex-shrink: 0;
 }
-.hero-map-text-wrap { display: flex; flex-direction: column; gap: 4px; }
+.hero-map-text-wrap { display: flex; flex-direction: column; gap: 2px; }
 .hero-map-main {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 13px;
-  color: rgba(245,243,238,0.95);
-  min-height: 16px;
+  font-size: 10px;
+  color: rgba(245,243,238,0.85);
+  min-height: 13px;
   white-space: nowrap;
 }
 .hero-map-sub {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 10px;
-  color: rgba(145,142,135,0.75);
+  font-size: 8px;
+  color: rgba(145,142,135,0.65);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
