@@ -3,7 +3,7 @@
    Minimal. Intelligent. Intentional.
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap');
 
 /* ── Variables ── */
 :root {
@@ -18,8 +18,8 @@
   --yellow:      #E8B84B;
   --yellow-dim:  #C49A35;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Chivo', sans-serif;
+  --font-body:    'Poppins', sans-serif;
 
   --max-width: 1160px;
   --nav-height: 72px;
@@ -47,9 +47,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ── Typography ── */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 h1 { font-size: clamp(2.4rem, 5.5vw, 5rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
