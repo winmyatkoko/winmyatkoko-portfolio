@@ -991,48 +991,46 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .clients-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 2px;
 }
 .client-logo-wrap {
   background: var(--black-2);
-  border: none;
-  padding: 20px 28px;
+  padding: 28px 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  height: 80px;
+  height: 100px;
   transition: background 0.2s;
-  flex: 1;
-  min-width: 120px;
-  max-width: 200px;
 }
 .client-logo-wrap:hover {
   background: var(--black-3);
 }
 .client-logo-wrap img {
-  max-height: 40px;
-  max-width: 120px;
+  max-height: 52px;
+  max-width: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(1.8);
-  opacity: 0.6;
+  filter: grayscale(100%) brightness(2.2) contrast(0.85);
+  opacity: 0.75;
   transition: filter 0.3s, opacity 0.3s;
 }
 .client-logo-wrap:hover img {
-  filter: grayscale(0%) brightness(1);
+  filter: grayscale(0%) brightness(1) contrast(1);
   opacity: 1;
 }
 @media (max-width: 640px) {
+  .clients-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
   .client-logo-wrap {
-    min-width: 100px;
-    padding: 16px 20px;
+    padding: 20px 24px;
+    height: 80px;
   }
   .client-logo-wrap img {
-    max-height: 32px;
-    max-width: 90px;
+    max-height: 40px;
+    max-width: 100px;
   }
 }
