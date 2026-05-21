@@ -1126,47 +1126,47 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 /* Map overlay — bottom left */
 .hero-map-overlay {
   position: absolute;
-  bottom: 20px;
-  left: 24px;
+  bottom: 24px;
+  left: 28px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(12,12,12,0.78);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(232,184,75,0.15);
+  gap: 14px;
+  background: rgba(12,12,12,0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(232,184,75,0.2);
   border-radius: 3px;
-  padding: 10px 16px;
+  padding: 14px 22px;
   z-index: 10;
 }
 .hero-map-counter {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 20px;
+  font-size: 32px;
   color: var(--yellow);
   letter-spacing: -0.03em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .hero-map-divider {
-  width: 1px; height: 24px;
+  width: 1px; height: 36px;
   background: rgba(232,184,75,0.2);
   flex-shrink: 0;
 }
-.hero-map-text-wrap { display: flex; flex-direction: column; gap: 2px; }
+.hero-map-text-wrap { display: flex; flex-direction: column; gap: 4px; }
 .hero-map-main {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 11px;
-  color: rgba(245,243,238,0.9);
-  min-height: 13px;
+  font-size: 13px;
+  color: rgba(245,243,238,0.95);
+  min-height: 16px;
   white-space: nowrap;
 }
 .hero-map-sub {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 9px;
-  color: rgba(145,142,135,0.7);
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: rgba(145,142,135,0.75);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .hero-map-dots { display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
