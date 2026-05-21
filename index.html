@@ -40,56 +40,54 @@
   <section class="hero" aria-label="Introduction">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Top: Centered headline -->
     <div class="container">
-      <div class="hero-two-col">
-
-        <!-- Left: Text -->
-        <div class="hero-content">
-          <div class="hero-label">
-            <div class="hero-label-dot"></div>
-            <span>Digital Growth Strategist</span>
-          </div>
-          <h1>Helping organizations grow the audiences that <em>matter.</em></h1>
-          <p class="hero-sub">
-            Senior digital growth strategist with 9+ years building audience-driven
-            media and campaigns across Asia and APAC.
-          </p>
-          <div class="hero-actions">
-            <a href="work.html" class="btn-primary">
-              See My Work
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href="about.html" class="btn-ghost">
-              About me
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
+      <div class="hero-content hero-content-centered">
+        <div class="hero-label">
+          <div class="hero-label-dot"></div>
+          <span>Digital Growth Strategist</span>
         </div>
-
-        <!-- Right: Campaign Map -->
-        <div class="hero-map-wrap" aria-hidden="true">
-          <canvas id="hero-map"></canvas>
-          <div class="hero-map-label">
-            <div class="hero-map-counter" id="hero-counter">0</div>
-            <div class="hero-map-divider"></div>
-            <div class="hero-map-text-wrap">
-              <div class="hero-map-main" id="hero-typetext"></div>
-              <div class="hero-map-sub">Campaign Footprint</div>
-            </div>
-            <div class="hero-map-dots">
-              <div class="hero-map-dot"></div>
-              <div class="hero-map-dot"></div>
-              <div class="hero-map-dot"></div>
-            </div>
-          </div>
+        <h1>Helping organizations grow<br>the audiences that <em>matter.</em></h1>
+        <p class="hero-sub">
+          Senior digital growth strategist with 9+ years building audience-driven
+          media and campaigns across Asia and APAC.
+        </p>
+        <div class="hero-actions hero-actions-centered">
+          <a href="work.html" class="btn-primary">
+            See My Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="about.html" class="btn-ghost">
+            About me
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
-
       </div>
     </div>
+
+    <!-- Bottom: Full width map -->
+    <div class="hero-map-fullwidth" aria-hidden="true">
+      <canvas id="hero-map"></canvas>
+      <div class="hero-map-label">
+        <div class="hero-map-counter" id="hero-counter">0</div>
+        <div class="hero-map-divider"></div>
+        <div class="hero-map-text-wrap">
+          <div class="hero-map-main" id="hero-typetext"></div>
+          <div class="hero-map-sub">Campaign Footprint</div>
+        </div>
+        <div class="hero-map-dots">
+          <div class="hero-map-dot"></div>
+          <div class="hero-map-dot"></div>
+          <div class="hero-map-dot"></div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <script>
@@ -101,12 +99,12 @@
     resize();
     window.addEventListener('resize', resize);
 
-    const LON_MIN = 60, LON_MAX = 180, LAT_MIN = -48, LAT_MAX = 40;
+    const LON_MIN = 60, LON_MAX = 182, LAT_MIN = -50, LAT_MAX = 38;
     function proj(lon, lat) {
       const w = cv.width, h = cv.height;
       return {
-        x: 48 + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * (w - 80),
-        y: 36 + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * (h - 80),
+        x: 32 + ((lon - LON_MIN) / (LON_MAX - LON_MIN)) * (w - 48),
+        y: 24 + ((LAT_MAX - lat) / (LAT_MAX - LAT_MIN)) * (h - 60),
       };
     }
 

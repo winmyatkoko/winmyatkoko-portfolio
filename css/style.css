@@ -1076,39 +1076,45 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   animation-play-state: paused;
 }
 
-/* ── Hero two-column layout ── */
-.hero-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  padding: 80px 0 100px;
+/* ── Hero centered layout ── */
+.hero-content-centered {
+  text-align: center;
+  padding: 72px 0 40px;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 900px) {
-  .hero-two-col {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 0 80px;
-  }
+.hero-content-centered .hero-label {
+  justify-content: center;
+}
+.hero-content-centered h1 {
+  max-width: 20ch;
+}
+.hero-content-centered .hero-sub {
+  max-width: 52ch;
+  text-align: center;
+}
+.hero-actions-centered {
+  justify-content: center;
 }
 
-/* ── Hero map ── */
-.hero-map-wrap {
+/* ── Hero full width map ── */
+.hero-map-fullwidth {
   position: relative;
-  border: 1px solid rgba(232,184,75,0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  background: rgba(20,20,20,0.6);
+  width: 100%;
+  border-top: 1px solid rgba(232,184,75,0.08);
+  background: rgba(14,14,14,0.7);
+  z-index: 1;
 }
 #hero-map {
   display: block;
   width: 100%;
-  height: 320px;
+  height: 340px;
 }
 @media (max-width: 900px) {
-  #hero-map { height: 260px; }
+  #hero-map { height: 240px; }
 }
 .hero-map-label {
   display: flex;
