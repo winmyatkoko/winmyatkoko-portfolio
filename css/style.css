@@ -1017,33 +1017,33 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
-  height: 80px;
+  padding: 0 48px;
+  height: 120px;
   flex-shrink: 0;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 .ticker-item img {
-  height: 36px;
+  height: 64px;
   width: auto;
-  max-width: 120px;
+  max-width: 160px;
   object-fit: contain;
-  filter: grayscale(100%) brightness(2.5) contrast(0.8);
-  opacity: 0.65;
+  filter: grayscale(20%) brightness(1.1);
+  opacity: 0.9;
   transition: filter 0.3s, opacity 0.3s, transform 0.3s;
 }
 .ticker-item:hover img {
-  filter: grayscale(0%) brightness(1) contrast(1);
+  filter: grayscale(0%) brightness(1);
   opacity: 1;
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 @media (max-width: 768px) {
   .ticker-item {
-    padding: 0 28px;
-    height: 64px;
+    padding: 0 32px;
+    height: 90px;
   }
   .ticker-item img {
-    height: 28px;
-    max-width: 90px;
+    height: 48px;
+    max-width: 120px;
   }
   .ticker-wrapper::before,
   .ticker-wrapper::after {
