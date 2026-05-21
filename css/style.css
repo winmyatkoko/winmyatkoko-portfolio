@@ -303,6 +303,14 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
+.impact-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 768px) {
+  .impact-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .impact-item {
   padding: 0 40px;
   position: relative;
