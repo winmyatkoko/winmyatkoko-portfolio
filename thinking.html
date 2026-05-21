@@ -8,6 +8,92 @@
   <link rel="canonical" href="/thinking.html" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230C0C0C'/><text x='6' y='22' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23E8B84B'>W</text></svg>" />
+  <style>
+    .thinking-soon {
+      min-height: calc(100vh - 56px - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+    }
+    .thinking-soon-inner {
+      text-align: center;
+      max-width: 480px;
+    }
+    .soon-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow);
+      display: inline-block;
+      margin-bottom: 32px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    .soon-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 20px;
+    }
+    .soon-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .soon-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 40ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .soon-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .soon-topic {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 6px 14px;
+      border-radius: 2px;
+      background: var(--black-2);
+    }
+    .soon-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--yellow);
+      border: 1px solid rgba(232,184,75,0.3);
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .soon-linkedin:hover {
+      background: var(--yellow);
+      color: var(--black);
+    }
+  </style>
 </head>
 <body>
 
@@ -28,101 +114,34 @@
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <header class="page-header">
+  <section class="thinking-soon">
     <div class="container">
-      <div class="section-label"><span>Thinking</span></div>
-      <h1>Research, observations,<br>and working ideas.</h1>
-      <p>Notes on digital strategy, audience behavior, and the intersection of data and narrative in Asia. Written for people who think carefully about how digital communication creates change.</p>
-    </div>
-  </header>
+      <div class="thinking-soon-inner reveal">
 
-  <!-- Articles -->
-  <section class="thinking-grid" aria-label="Articles and essays">
-    <div class="container">
+        <div class="soon-dot"></div>
+        <div class="soon-label">Thinking</div>
+        <h1 class="soon-title">Writing in progress.</h1>
+        <p class="soon-desc">
+          Essays, research, and observations on digital strategy, audience behavior,
+          and how data and narrative intersect in Asia. Coming soon.
+        </p>
 
-      <a href="#" class="article-card reveal" aria-label="Article: Does Better SEO Ranking Drive AI Search Traffic?">
-        <div class="article-card-meta">
-          <span class="article-date">Coming soon</span>
-          <span class="article-category">Research</span>
+        <div class="soon-topics">
+          <span class="soon-topic">AI Search Optimization</span>
+          <span class="soon-topic">Climate Media in Asia</span>
+          <span class="soon-topic">Audience Intelligence</span>
+          <span class="soon-topic">From Campaigns to Ecosystems</span>
+          <span class="soon-topic">SEO Strategy</span>
+          <span class="soon-topic">Growth Systems</span>
         </div>
-        <h3>Does Better SEO Ranking Drive AI Search Traffic? What Our Data Shows</h3>
-        <p>
-          We analyzed data from two websites to test whether lower average position in Google
-          correlates with higher referral traffic from AI platforms like ChatGPT and Perplexity.
-          The results are more nuanced than the conventional wisdom suggests.
-        </p>
-        <span class="article-read">
-          Read
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
 
-      <a href="#" class="article-card reveal reveal-delay-1" aria-label="Article: Three Years of Climate Media">
-        <div class="article-card-meta">
-          <span class="article-date">Coming soon</span>
-          <span class="article-category">Audience Behavior</span>
-        </div>
-        <h3>Three Years of Climate Media: What Audiences in Asia Actually Want</h3>
-        <p>
-          After three years growing two climate and energy publications across Asia, I have
-          a clearer picture of what drives engagement, what falls flat, and why the assumptions
-          many Western media organizations bring to climate communication don't translate
-          to the region.
-        </p>
-        <span class="article-read">
-          Read
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
-
-      <a href="#" class="article-card reveal reveal-delay-2" aria-label="Article: From Campaigns to Ecosystems">
-        <div class="article-card-meta">
-          <span class="article-date">Coming soon</span>
-          <span class="article-category">Strategy</span>
-        </div>
-        <h3>From Campaigns to Ecosystems: How I Think About Digital Growth Now</h3>
-        <p>
-          The shift from thinking in campaigns to thinking in systems is the most important
-          mental model change I've made in nine years of digital work. Here's what it means
-          in practice, and why it changes almost every strategic decision.
-        </p>
-        <span class="article-read">
-          Read
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
-
-      <!-- Placeholder notice -->
-      <div class="reveal" style="margin-top: 48px; padding: 36px; background: var(--black-2); border: 1px solid rgba(255,255,255,0.06);">
-        <p style="font-size: 0.875rem; color: var(--muted); max-width: none; margin: 0;">
-          Articles are in progress. The three pieces above represent the planned first essays —
-          drawn from original research and real data from work across Asia.
-          Subscribe to the newsletter or follow on LinkedIn to be notified when they publish.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <section class="contact-cta" aria-label="Contact">
-    <div class="container">
-      <div class="reveal">
-        <h2>Working on something <em>meaningful?</em></h2>
-        <p>Open to strategic consulting, growth roles, and research collaborations across Asia and APAC.</p>
-        <a href="contact.html" class="btn-primary" style="display:inline-flex; margin: 0 auto;">
-          Let's talk
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <a href="https://www.linkedin.com/in/winmyatkoko/" target="_blank" rel="noopener noreferrer" class="soon-linkedin">
+          Follow on LinkedIn for updates
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
+
       </div>
     </div>
   </section>
