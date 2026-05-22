@@ -82,7 +82,9 @@
 
         <!-- Form side -->
         <div class="reveal reveal-delay-1">
-          <form class="contact-form" novalidate aria-label="Contact form">
+          <form class="contact-form" action="https://formspree.io/f/maqkorve" method="POST" novalidate aria-label="Contact form">
+            <input type="hidden" name="_subject" value="New message from winmyatkoko.com" />
+            <input type="hidden" name="_next" value="https://winmyatkoko.com/contact.html?sent=true" />
             <div class="form-group">
               <label class="form-label" for="name">Your name</label>
               <input
