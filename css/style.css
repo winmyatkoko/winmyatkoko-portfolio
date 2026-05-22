@@ -1187,3 +1187,28 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   .hero-content-centered h1 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
   .hero-map-overlay { bottom: 12px; left: 12px; padding: 8px 12px; }
 }
+
+/* Mobile nav tap target fix */
+@media (max-width: 768px) {
+  .nav-links.open li {
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links.open li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-links.open li a.nav-cta {
+    margin: 8px auto;
+    width: fit-content;
+    min-width: 140px;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}
+

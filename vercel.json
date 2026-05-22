@@ -1,3 +1,95 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/case-eta-cita",
+      "destination": "/case-climate-media-growth",
+      "permanent": true
+    },
+    {
+      "source": "/case-visier",
+      "destination": "/case-b2b-saas-lead-generation",
+      "permanent": true
+    },
+    {
+      "source": "/case-cookietv",
+      "destination": "/case-app-growth-monetization",
+      "permanent": true
+    },
+    {
+      "source": "/case-wallstreet",
+      "destination": "/case-education-lead-generation",
+      "permanent": true
+    },
+    {
+      "source": "/case-flexiblepass",
+      "destination": "/case-app-funnel-optimization",
+      "permanent": true
+    },
+    {
+      "source": "/case-citymall",
+      "destination": "/case-ecommerce-performance-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/case-tomahawk",
+      "destination": "/case-fmcg-sequential-campaign",
+      "permanent": true
+    },
+    {
+      "source": "/case-ueu",
+      "destination": "/case-public-health-digital-campaign",
+      "permanent": true
+    },
+    {
+      "source": "/case-lannpya",
+      "destination": "/case-legal-app-growth",
+      "permanent": true
+    },
+    {
+      "source": "/case-eta-cita.html",
+      "destination": "/case-climate-media-growth",
+      "permanent": true
+    },
+    {
+      "source": "/case-visier.html",
+      "destination": "/case-b2b-saas-lead-generation",
+      "permanent": true
+    },
+    {
+      "source": "/case-cookietv.html",
+      "destination": "/case-app-growth-monetization",
+      "permanent": true
+    },
+    {
+      "source": "/case-wallstreet.html",
+      "destination": "/case-education-lead-generation",
+      "permanent": true
+    },
+    {
+      "source": "/case-flexiblepass.html",
+      "destination": "/case-app-funnel-optimization",
+      "permanent": true
+    },
+    {
+      "source": "/case-citymall.html",
+      "destination": "/case-ecommerce-performance-marketing",
+      "permanent": true
+    },
+    {
+      "source": "/case-tomahawk.html",
+      "destination": "/case-fmcg-sequential-campaign",
+      "permanent": true
+    },
+    {
+      "source": "/case-ueu.html",
+      "destination": "/case-public-health-digital-campaign",
+      "permanent": true
+    },
+    {
+      "source": "/case-lannpya.html",
+      "destination": "/case-legal-app-growth",
+      "permanent": true
+    }
+  ]
 }
