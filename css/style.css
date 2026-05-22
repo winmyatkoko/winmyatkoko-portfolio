@@ -1014,31 +1014,35 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   gap: 0;
   width: max-content;
   animation: ticker-scroll 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .ticker-track:hover {
   animation-play-state: paused;
 }
 @keyframes ticker-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 .ticker-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 56px;
-  height: 160px;
+  padding: 0 48px;
+  height: 120px;
   flex-shrink: 0;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 .ticker-item img {
-  height: 100px;
+  height: 72px;
   width: auto;
-  max-width: 220px;
+  max-width: 180px;
   object-fit: contain;
   filter: grayscale(20%) brightness(1.1);
   opacity: 0.9;
   transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+  will-change: auto;
 }
 .ticker-item:hover img {
   filter: grayscale(0%) brightness(1);
@@ -1046,17 +1050,20 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   transform: scale(1.06);
 }
 @media (max-width: 768px) {
+  .ticker-track {
+    animation-duration: 28s;
+  }
   .ticker-item {
-    padding: 0 36px;
-    height: 120px;
+    padding: 0 28px;
+    height: 88px;
   }
   .ticker-item img {
-    height: 72px;
-    max-width: 160px;
+    height: 48px;
+    max-width: 120px;
   }
   .ticker-wrapper::before,
   .ticker-wrapper::after {
-    width: 60px;
+    width: 40px;
   }
 }
 
@@ -1187,28 +1194,3 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   .hero-content-centered h1 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
   .hero-map-overlay { bottom: 12px; left: 12px; padding: 8px 12px; }
 }
-
-/* Mobile nav tap target fix */
-@media (max-width: 768px) {
-  .nav-links.open li {
-    width: 100%;
-    text-align: center;
-  }
-  .nav-links.open li a {
-    display: block;
-    padding: 14px 24px;
-    font-size: 1.1rem;
-    min-height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .nav-links.open li a.nav-cta {
-    margin: 8px auto;
-    width: fit-content;
-    min-width: 140px;
-    justify-content: center;
-    padding: 14px 24px;
-  }
-}
-
