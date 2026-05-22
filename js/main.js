@@ -111,32 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Active nav link ──
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname;
   document.querySelectorAll('.nav-links a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    if (href === currentPath || (currentPath === '/' && href === '/') ||
+        (currentPath !== '/' && href !== '/' && currentPath.startsWith(href))) {
       link.style.color = 'var(--white)';
     }
   });
 
-  // ── Contact form ──
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Message sent →';
-      btn.style.background = 'var(--black-3)';
-      btn.style.color = 'var(--yellow)';
-      btn.style.border = '1px solid rgba(232,184,75,0.3)';
-      setTimeout(() => {
-        btn.textContent = 'Send message →';
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.style.border = '';
-        form.reset();
-      }, 3000);
-    });
-  }
 
 });
