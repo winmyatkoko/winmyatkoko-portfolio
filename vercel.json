@@ -90,6 +90,16 @@
       "source": "/case-lannpya.html",
       "destination": "/case-legal-app-growth",
       "permanent": true
+    },
+    {
+      "source": "/case-myanmar-digital",
+      "destination": "/thinking/myanmar-digital-marketing-2026",
+      "permanent": true
+    },
+    {
+      "source": "/myanmar-digital-marketing-2026",
+      "destination": "/thinking/myanmar-digital-marketing-2026",
+      "permanent": true
     }
   ]
 }
