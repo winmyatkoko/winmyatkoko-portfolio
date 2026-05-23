@@ -182,16 +182,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 600px) {
       .stat-grid { grid-template-columns: 1fr; }
     }
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Reveal animation handled by main.js */
     .case-category {
       font-size: 0.7rem;
       font-weight: 500;
@@ -446,15 +437,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="../js/main.js"></script>
-
-  <script>
-  // ── Reveal on scroll ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => observer.observe(el));
-
   // ── Shared helpers ──
   const YELLOW = '#E8B84B';
   const YELLOW_DIM = '#C49A35';
