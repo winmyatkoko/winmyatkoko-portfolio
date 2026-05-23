@@ -20,7 +20,13 @@ winmyatkoko-portfolio/
 ├── case-fmcg-sequential-campaign.html
 ├── case-public-health-digital-campaign.html
 ├── case-legal-app-growth.html
+├── thinking/
+│   ├── myanmar-digital-marketing-2026.html
+│   ├── seo-vs-aeo-ai-referral-traffic.html
+│   └── power-interest-grid-b2b-marketing.html
 ├── vercel.json
+├── sitemap.xml
+├── robots.txt
 ├── css/
 │   └── style.css
 └── js/
