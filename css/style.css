@@ -869,45 +869,16 @@ p { color: var(--white-2); font-weight: 300; }
 }
 @media (max-width: 768px) {
   .case-layout { grid-template-columns: 1fr; gap: 0; padding: 48px 0 80px; }
-  .case-sidebar { display: none; }
+  
 }
 .case-body {
-  min-width: 0;
+  padding: 80px 0 120px;
 }
-.case-sidebar {
-  position: sticky;
-  top: 96px;
-}
-.case-sidebar-card {
-  background: var(--black-3);
-  border: 1px solid var(--black-4);
-  padding: 24px 28px;
-  margin-bottom: 2px;
-}
-.case-sidebar-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--black-4);
-}
-.case-sidebar-stat {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--yellow);
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.case-sidebar-desc {
-  font-size: 0.72rem;
-  color: var(--muted);
-  line-height: 1.4;
-}
+
+
+
+
+
 .case-body h3 {
   font-size: 0.7rem;
   font-weight: 600;
