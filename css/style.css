@@ -55,7 +55,7 @@ h1 { font-size: clamp(2.4rem, 5.5vw, 5rem); }
 h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
 h4 { font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
-p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
+p { color: #2A2825; font-weight: 300; max-width: 64ch; }
 
 /* ── Layout ── */
 .container {
@@ -684,7 +684,7 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 .about-narrative p {
   font-size: 1rem;
   line-height: 1.85;
-  color: #D8D4CC;
+  color: #2A2825;
   margin-bottom: 20px;
   max-width: none;
 }
@@ -871,7 +871,7 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 .case-body p {
   font-size: 0.975rem;
   line-height: 1.85;
-  color: #D8D4CC;
+  color: #2A2825;
   margin-bottom: 16px;
   max-width: none;
 }
@@ -1216,7 +1216,7 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 10px;
-  color: rgba(245,243,238,0.85);
+  color: rgba(17,17,16,0.85);
   min-height: 13px;
   white-space: nowrap;
 }
@@ -1224,7 +1224,7 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 8px;
-  color: rgba(145,142,135,0.65);
+  color: rgba(74,72,69,0.65);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
