@@ -51,9 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .blog-byline strong { color: var(--white); font-weight: 500; }
     .blog-body {
-      max-width: 720px;
-      padding: 80px 0 120px;
-    }
+      }
     .blog-body h2 {
       font-size: clamp(1.4rem, 2.5vw, 2rem);
       margin-top: 56px;
@@ -72,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .blog-body p {
       font-size: 1rem;
       line-height: 1.9;
-      color: #2A2825;
+      color: var(--white-2);
       margin-bottom: 20px;
       max-width: none;
     }
@@ -116,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .blog-disclaimer {
       margin-top: 48px;
       padding: 20px 24px;
-      background: rgba(255,255,255,0.02);
+      background: rgba(17,17,16,0.03);
       border: 1px solid rgba(17,17,16,0.08);
       font-size: 0.8rem;
       color: var(--muted);
@@ -284,7 +282,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .stats-2x2 { grid-template-columns: 1fr; }
       .stat-label { width: 110px; font-size: 0.72rem; }
     }
-  </style>
+  
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+      padding: 80px 0 120px;
+    }
+    @media (max-width: 1024px) {
+      .blog-layout {
+        grid-template-columns: 1fr 240px;
+        gap: 48px;
+      }
+    }
+    @media (max-width: 768px) {
+      .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .blog-sidebar { display: none; }
+    }
+    .blog-body {
+      min-width: 0;
+    }
+    .blog-sidebar {
+      position: sticky;
+      top: 96px;
+    }
+    .blog-toc {
+      background: var(--black-3);
+      border: 1px solid var(--black-4);
+      padding: 24px 28px;
+    }
+    .blog-toc-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--black-4);
+    }
+    .blog-toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .toc-link {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      padding: 6px 0;
+      line-height: 1.4;
+      border-bottom: none;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .toc-link:hover {
+      color: var(--yellow);
+      padding-left: 6px;
+    }
+    .toc-link.active {
+      color: var(--yellow);
+      font-weight: 500;
+    }
+
+    </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -324,6 +392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <article>
     <div class="container">
+    <div class="blog-layout">
       <div class="blog-body">
 
         <p>In late 2024, a routine analytics review flagged something unusual. Referral traffic from ChatGPT. Then Perplexity. Then Gemini. Not one-off visits. A consistent, growing pattern across two climate and energy media publications we manage, operating across 13 Asian markets.</p>
@@ -333,7 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>That triggered a real strategic question. Should we invest more in AEO-optimized content, the kind structured specifically to be cited by AI platforms? Or should we double down on the SEO work we were already doing? We decided to find out.</p>
 
         <h3>The Global Picture</h3>
-        <h2>What the Industry Data Says About AI Referral Traffic</h2>
+        <h2 id="what-the-industry-data-says-about-ai-referral-traf">What the Industry Data Says About AI Referral Traffic</h2>
 
         <p>Our internal observation wasn't an anomaly. The broader data confirms that AI referral traffic is growing fast globally, even if it's still small in absolute terms.</p>
 
@@ -414,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <h3>The Analysis</h3>
-        <h2>Our Hypothesis and How We Tested It</h2>
+        <h2 id="our-hypothesis-and-how-we-tested-it">Our Hypothesis and How We Tested It</h2>
 
         <p>The question we set out to answer was specific: does a lower Average Position in Google Search (i.e., better SEO ranking) lead to more views from AI referral traffic?</p>
 
@@ -427,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><strong>A note on limitations.</strong> At the time of this analysis, AI referral traffic accounted for less than 1% of total organic traffic on both sites. That means the dataset of pages with meaningful AI referral visits is small, which limits the statistical power of any correlation analysis. These findings should be treated as early directional signals, not definitive conclusions. We intend to revisit this analysis as the dataset grows.</p>
 
         <h3>The Findings</h3>
-        <h2>What We Found</h2>
+        <h2 id="what-we-found">What We Found</h2>
 
         <p>The short answer: the hypothesis is partially true, but the effect is not strong across the full dataset.</p>
 
@@ -446,26 +515,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- x: 0-55 mapped to 60-660 (600px), y: 0-500 mapped to 290-20 (270px) -->
 
   <!-- Grid lines vertical (every 5) -->
-  <line x1="60" y1="20" x2="60" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="109" y1="20" x2="109" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="169" y1="20" x2="169" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="218" y1="20" x2="218" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="278" y1="20" x2="278" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="327" y1="20" x2="327" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="387" y1="20" x2="387" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="436" y1="20" x2="436" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="496" y1="20" x2="496" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="545" y1="20" x2="545" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="605" y1="20" x2="605" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="660" y1="20" x2="660" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
+  <line x1="60" y1="20" x2="60" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="109" y1="20" x2="109" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="169" y1="20" x2="169" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="218" y1="20" x2="218" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="278" y1="20" x2="278" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="327" y1="20" x2="327" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="387" y1="20" x2="387" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="436" y1="20" x2="436" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="496" y1="20" x2="496" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="545" y1="20" x2="545" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="605" y1="20" x2="605" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="660" y1="20" x2="660" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
 
   <!-- Grid lines horizontal (every 50) -->
-  <line x1="60" y1="290" x2="660" y2="290" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="60" y1="236" x2="660" y2="236" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="60" y1="182" x2="660" y2="182" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="60" y1="128" x2="660" y2="128" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="60" y1="74" x2="660" y2="74" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
-  <line x1="60" y1="20" x2="660" y2="20" stroke="rgba(17,17,16,0.09)" stroke-width="1"/>
+  <line x1="60" y1="290" x2="660" y2="290" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="60" y1="236" x2="660" y2="236" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="60" y1="182" x2="660" y2="182" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="60" y1="128" x2="660" y2="128" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="60" y1="74" x2="660" y2="74" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <line x1="60" y1="20" x2="660" y2="20" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
 
   <!-- Axes -->
   <line x1="60" y1="20" x2="60" y2="290" stroke="rgba(17,17,16,0.18)" stroke-width="1"/>
@@ -686,7 +755,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><strong>Common features of the highest-performing pages for AI referral traffic:</strong> a strong 1–2 sentence introductory summary that clearly states the topic or problem; clear subheadings making content easy to parse; a problem-solution content structure with the problem identified early and solutions in separate sections; and fact-based writing anchored to authoritative sources with citations. These structural characteristics appeared consistently across the pages generating the most AI referral views.</p>
 
         <h3>Google's Official Position: And Its Limits</h3>
-        <h2>What Google's Guide Says, and Where It Falls Short</h2>
+        <h2 id="what-googles-guide-says-and-where-it-falls-short">What Google's Guide Says, and Where It Falls Short</h2>
 
         <p>In May 2026, Google published its official guide to optimizing for generative AI features on Google Search. It's worth reading carefully, both for what it confirms and for what it doesn't cover.</p>
 
@@ -705,7 +774,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>The honest conclusion is that the relationship between SEO and AI citation is real but platform-specific, evolving fast, and more complex than any single guide can capture. Google's guide is authoritative for Google. It is not authoritative for the broader AI referral landscape.</p>
 
         <h3>The Strategic Answer</h3>
-        <h2>So, SEO or AEO? Our Answer.</h2>
+        <h2 id="so-seo-or-aeo-our-answer">So, SEO or AEO? Our Answer.</h2>
 
         <p>The framing of SEO versus AEO is a false choice, at least for now. The evidence from our analysis, from Google's own documentation, and from the broader research all points in the same direction: SEO is the foundation, with AEO-friendly content structure built on top.</p>
 
@@ -718,7 +787,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="framework-layer-title" style="color:#C84B31;">Localization & Specificity (GEO Layer)</div>
                 <div class="framework-layer-desc">Country-specific · Non-commodity · Unique point of view</div>
               </div>
-              <div class="framework-layer" style="background:rgba(17,17,16,0.05);border:1px solid rgba(17,17,16,0.10);margin-top:1px;">
+              <div class="framework-layer" style="background:rgba(17,17,16,0.05);border:1px solid rgba(255,255,255,0.08);margin-top:1px;">
                 <div class="framework-layer-title" style="color:#2A2825;">Content Structure (AEO Layer)</div>
                 <div class="framework-layer-desc">Clear intro summary · Problem-solution format · Data-backed · Authoritative citations</div>
               </div>
@@ -745,7 +814,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><strong>5. Start tracking AI referral traffic in GA4 now if you aren't already.</strong> Create a custom channel grouping for AI sources. Build a dedicated tracking view. The organizations that have 12 months of clean data will have a significant analytical advantage over those starting from scratch when this channel becomes more material.</p>
 
         <h3>Conclusion</h3>
-        <h2>This Is an Early Signal, Not a Final Answer</h2>
+        <h2 id="this-is-an-early-signal-not-a-final-answer">This Is an Early Signal, Not a Final Answer</h2>
 
         <p>AI traffic is still under 1% of organic traffic on both publications we studied. The dataset is limited. The platform landscape is shifting faster than any single study can capture. The correlation we found is weak. We will revisit this.</p>
 
@@ -779,6 +848,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
       </div>
+    <aside class="blog-sidebar">
+    <div class="blog-toc">
+      <div class="blog-toc-label">In this article</div>
+      <ul class="blog-toc-list">
+      <li><a href="#what-the-industry-data-says-about-ai-referral-traf" class="toc-link">What the Industry Data Says About AI Referral Traffic</a></li>
+      <li><a href="#our-hypothesis-and-how-we-tested-it" class="toc-link">Our Hypothesis and How We Tested It</a></li>
+      <li><a href="#what-we-found" class="toc-link">What We Found</a></li>
+      <li><a href="#what-googles-guide-says-and-where-it-falls-short" class="toc-link">What Google's Guide Says, and Where It Falls Short</a></li>
+      <li><a href="#so-seo-or-aeo-our-answer" class="toc-link">So, SEO or AEO? Our Answer.</a></li>
+      <li><a href="#this-is-an-early-signal-not-a-final-answer" class="toc-link">This Is an Early Signal, Not a Final Answer</a></li>
+      </ul>
+    </div>
+  </aside>
+    </div>
     </div>
   </article>
 
@@ -806,5 +889,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="../js/main.js"></script>
+
+  <script>
+  (function() {
+    var links = document.querySelectorAll('.toc-link');
+    if (!links.length) return;
+    var headings = [];
+    links.forEach(function(l) {
+      var id = l.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ el: el, link: l });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 120;
+      var active = null;
+      headings.forEach(function(h) {
+        if (h.el.offsetTop <= scrollY) active = h;
+      });
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (active) active.link.classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
+
 </body>
 </html>

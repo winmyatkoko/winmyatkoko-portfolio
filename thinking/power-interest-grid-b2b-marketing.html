@@ -51,9 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .blog-byline strong { color: var(--white); font-weight: 500; }
     .blog-body {
-      max-width: 720px;
-      padding: 80px 0 120px;
-    }
+      }
     .blog-body h2 {
       font-size: clamp(1.4rem, 2.5vw, 2rem);
       margin-top: 56px;
@@ -72,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .blog-body p {
       font-size: 1rem;
       line-height: 1.9;
-      color: #2A2825;
+      color: var(--white-2);
       margin-bottom: 20px;
       max-width: none;
     }
@@ -141,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       vertical-align: top;
       font-size: 0.88rem;
       line-height: 1.65;
-      color: #2A2825;
+      color: var(--white-2);
     }
     .stakeholder-table .col-name {
       font-family: var(--font-display);
@@ -149,7 +147,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--white);
       font-size: 0.9rem;
       width: 28%;
-      background: rgba(255,255,255,0.02);
+      background: rgba(17,17,16,0.03);
     }
     .stakeholder-table .col-quad {
       width: 25%;
@@ -176,14 +174,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      border-bottom: 1px solid rgba(17,17,16,0.10);
-      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(17,17,16,0.03);
     }
     .matrix-table td {
       padding: 16px;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       vertical-align: top;
-      color: #2A2825;
+      color: var(--white-2);
       line-height: 1.65;
     }
     .matrix-table tr:last-child td { border-bottom: none; }
@@ -257,7 +255,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .stakeholder-table td, .matrix-table td { padding: 12px; }
       .budget-label { width: 110px; }
     }
-  </style>
+  
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+      padding: 80px 0 120px;
+    }
+    @media (max-width: 1024px) {
+      .blog-layout {
+        grid-template-columns: 1fr 240px;
+        gap: 48px;
+      }
+    }
+    @media (max-width: 768px) {
+      .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .blog-sidebar { display: none; }
+    }
+    .blog-body {
+      min-width: 0;
+    }
+    .blog-sidebar {
+      position: sticky;
+      top: 96px;
+    }
+    .blog-toc {
+      background: var(--black-3);
+      border: 1px solid var(--black-4);
+      padding: 24px 28px;
+    }
+    .blog-toc-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--black-4);
+    }
+    .blog-toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .toc-link {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      padding: 6px 0;
+      line-height: 1.4;
+      border-bottom: none;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .toc-link:hover {
+      color: var(--yellow);
+      padding-left: 6px;
+    }
+    .toc-link.active {
+      color: var(--yellow);
+      font-weight: 500;
+    }
+
+    </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -297,6 +365,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <article>
     <div class="container">
+    <div class="blog-layout">
       <div class="blog-body">
 
         <p>You get the brief. The product is a B2B HR software platform. The target audience is "HR professionals and business decision-makers at companies with 50 to 500 employees." You open the ad platform, set the job titles, pick the industries, layer in some relevant interests, set a budget, and launch.</p>
@@ -308,7 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>In this post I want to walk you through a framework I use to solve this before a single targeting parameter gets set: the Power-Interest Grid. I will use BetterHR (<a href="https://betterhr.com" target="_blank" rel="noopener noreferrer">betterhr.com</a>), a B2B HR and payroll SaaS platform operating across Southeast Asia, as the example throughout.</p>
 
         <h3>The Reality of B2B Buying</h3>
-        <h2>Why B2B Products Have Multiple Audiences, Not One</h2>
+        <h2 id="why-b2b-products-have-multiple-audiences-not-one">Why B2B Products Have Multiple Audiences, Not One</h2>
 
         <p>When someone buys a pair of shoes online, there is typically one person making the decision. When a company buys an HR software platform, there is almost never just one person involved.</p>
 
@@ -325,7 +394,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>The fix is not to run more campaigns or spend more budget. It is to understand the buying group first, and then build your audience strategy around it. That is where the Power-Interest Grid comes in.</p>
 
         <h3>The Framework</h3>
-        <h2>Introducing the Power-Interest Grid</h2>
+        <h2 id="introducing-the-power-interest-grid">Introducing the Power-Interest Grid</h2>
 
         <p>The Power-Interest Grid is a stakeholder mapping framework originally developed by Colin Eden and Fran Ackermann in their 1998 book <em>Making Strategy</em>.<sup class="blog-citation">[4]</sup> It was designed for strategy and project management, but it translates directly and cleanly into audience planning for digital marketing.</p>
 
@@ -342,8 +411,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <rect width="560" height="400" fill="#FFFFFF"/>
               <!-- Quadrant backgrounds -->
               <rect x="60" y="20" width="220" height="170" fill="rgba(200,75,49,0.05)" rx="2"/>
-              <rect x="284" y="20" width="256" height="170" fill="rgba(255,255,255,0.02)" rx="2"/>
-              <rect x="60" y="194" width="220" height="170" fill="rgba(255,255,255,0.02)" rx="2"/>
+              <rect x="284" y="20" width="256" height="170" fill="rgba(17,17,16,0.03)" rx="2"/>
+              <rect x="60" y="194" width="220" height="170" fill="rgba(17,17,16,0.03)" rx="2"/>
               <rect x="284" y="194" width="256" height="170" fill="rgba(255,255,255,0.01)" rx="2"/>
               <!-- Dividers -->
               <line x1="272" y1="20" x2="272" y2="364" stroke="rgba(17,17,16,0.10)" stroke-width="1" stroke-dasharray="4,3"/>
@@ -389,7 +458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><strong>Monitor (Low Power, Low Interest)</strong> requires minimal campaign investment. Track this group but do not prioritize it.</p>
 
         <h3>The Case Study</h3>
-        <h2>Staging the BetterHR Scenario</h2>
+        <h2 id="staging-the-betterhr-scenario">Staging the BetterHR Scenario</h2>
 
         <p>To make this concrete, I want to walk through a real example. I am going to use BetterHR (<a href="https://betterhr.com" target="_blank" rel="noopener noreferrer">betterhr.com</a>) as the case study for this post. BetterHR is a multi-country HR and payroll SaaS platform serving companies across Southeast Asia, covering payroll compliance across nine countries including Myanmar, Singapore, Thailand, Vietnam, the Philippines, and more. It is a genuinely useful product that replaces disconnected spreadsheets and manual HR processes with a unified platform at $2.20 per active user per month.</p>
 
@@ -420,7 +489,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <h3>Plotting the Grid</h3>
-        <h2>Mapping BetterHR Stakeholders to Their Quadrants</h2>
+        <h2 id="mapping-betterhr-stakeholders-to-their-quadrants">Mapping BetterHR Stakeholders to Their Quadrants</h2>
 
         <p>Now we take each stakeholder group and plot them explicitly. The placement is not arbitrary. Each position reflects a deliberate assessment of how much power this person has over the buying decision, and how directly interested they are in the product on a day-to-day basis.</p>
 
@@ -455,8 +524,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <rect width="560" height="420" fill="#FFFFFF"/>
               <!-- Quadrant backgrounds -->
               <rect x="60" y="20" width="220" height="185" fill="rgba(200,75,49,0.06)" rx="2"/>
-              <rect x="284" y="20" width="256" height="185" fill="rgba(255,255,255,0.02)" rx="2"/>
-              <rect x="60" y="209" width="220" height="185" fill="rgba(255,255,255,0.02)" rx="2"/>
+              <rect x="284" y="20" width="256" height="185" fill="rgba(17,17,16,0.03)" rx="2"/>
+              <rect x="60" y="209" width="220" height="185" fill="rgba(17,17,16,0.03)" rx="2"/>
               <rect x="284" y="209" width="256" height="185" fill="rgba(255,255,255,0.01)" rx="2"/>
               <!-- Dividers -->
               <line x1="272" y1="20" x2="272" y2="394" stroke="rgba(17,17,16,0.10)" stroke-width="1" stroke-dasharray="4,3"/>
@@ -488,7 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <text x="190" y="348" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4A90D9">HR STAFF</text>
               <text x="190" y="364" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4A4845" font-style="italic">Daily User</text>
               <!-- Other stakeholders dot (bottom-right) -->
-              <circle cx="400" cy="300" r="14" fill="rgba(17,17,16,0.05)" stroke="rgba(17,17,16,0.15)" stroke-width="1"/>
+              <circle cx="400" cy="300" r="14" fill="rgba(17,17,16,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
               <circle cx="400" cy="300" r="5" fill="#3A3835"/>
               <text x="400" y="330" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6A6560">OTHER</text>
               <text x="400" y="344" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6A6560">STAKEHOLDERS</text>
@@ -505,7 +574,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <h3>Messaging Strategy</h3>
-        <h2>What the Grid Tells You About How to Communicate</h2>
+        <h2 id="what-the-grid-tells-you-about-how-to-communicate">What the Grid Tells You About How to Communicate</h2>
 
         <p>Plotting the grid is not the end of the exercise. It is the start of the real work. Once you know where each stakeholder sits, you can decide what to say to them, how to say it, and what you want them to do next.</p>
 
@@ -555,7 +624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Third, the operational HR staff content is not about conversion. It is about advocacy and reduced resistance. An operational HR team that is excited about a new platform will make the CEO's decision easier. One that is skeptical or anxious will create friction at exactly the wrong moment.</p>
 
         <h3>From Grid to Campaign Plan</h3>
-        <h2>Turning the Audience Map Into Your Campaign Structure</h2>
+        <h2 id="turning-the-audience-map-into-your-campaign-struct">Turning the Audience Map Into Your Campaign Structure</h2>
 
         <p>The grid and the messaging matrix give you everything you need to structure a proper campaign audience plan. Here is how it translates in practice.</p>
 
@@ -576,7 +645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="budget-bar-wrap">
               <div class="budget-label">HR Manager / Director</div>
               <div class="budget-bar">
-                <div class="budget-fill" style="width:60%;background:#C84B31;color:#FAFAF8;">60%</div>
+                <div class="budget-fill" style="width:60%;background:#C84B31;color:#0C0C0C;">60%</div>
               </div>
             </div>
             <div class="budget-bar-wrap">
@@ -596,7 +665,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <h3>Conclusion</h3>
-        <h2>The Grid Is the Brief</h2>
+        <h2 id="the-grid-is-the-brief">The Grid Is the Brief</h2>
 
         <p>The Power-Interest Grid is not an extra step in the planning process. It is the foundation the brief should be built on before a single targeting parameter gets set.</p>
 
@@ -622,6 +691,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
       </div>
+    <aside class="blog-sidebar">
+    <div class="blog-toc">
+      <div class="blog-toc-label">In this article</div>
+      <ul class="blog-toc-list">
+      <li><a href="#why-b2b-products-have-multiple-audiences-not-one" class="toc-link">Why B2B Products Have Multiple Audiences, Not One</a></li>
+      <li><a href="#introducing-the-power-interest-grid" class="toc-link">Introducing the Power-Interest Grid</a></li>
+      <li><a href="#staging-the-betterhr-scenario" class="toc-link">Staging the BetterHR Scenario</a></li>
+      <li><a href="#mapping-betterhr-stakeholders-to-their-quadrants" class="toc-link">Mapping BetterHR Stakeholders to Their Quadrants</a></li>
+      <li><a href="#what-the-grid-tells-you-about-how-to-communicate" class="toc-link">What the Grid Tells You About How to Communicate</a></li>
+      <li><a href="#turning-the-audience-map-into-your-campaign-struct" class="toc-link">Turning the Audience Map Into Your Campaign Structure</a></li>
+      <li><a href="#the-grid-is-the-brief" class="toc-link">The Grid Is the Brief</a></li>
+      </ul>
+    </div>
+  </aside>
+    </div>
     </div>
   </article>
 
@@ -649,5 +733,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="../js/main.js"></script>
+
+  <script>
+  (function() {
+    var links = document.querySelectorAll('.toc-link');
+    if (!links.length) return;
+    var headings = [];
+    links.forEach(function(l) {
+      var id = l.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ el: el, link: l });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 120;
+      var active = null;
+      headings.forEach(function(h) {
+        if (h.el.offsetTop <= scrollY) active = h;
+      });
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (active) active.link.classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
+
 </body>
 </html>

@@ -44,9 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.7;
     }
     .blog-body {
-      max-width: 720px;
-      padding: 80px 0 120px;
-    }
+      }
     .blog-body h2 {
       font-size: clamp(1.4rem, 2.5vw, 2rem);
       margin-top: 56px;
@@ -65,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .blog-body p {
       font-size: 1rem;
       line-height: 1.9;
-      color: #2A2825;
+      color: var(--white-2);
       margin-bottom: 20px;
       max-width: none;
     }
@@ -205,7 +203,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: flex;
       align-items: center;
     }
-  </style>
+  
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+      padding: 80px 0 120px;
+    }
+    @media (max-width: 1024px) {
+      .blog-layout {
+        grid-template-columns: 1fr 240px;
+        gap: 48px;
+      }
+    }
+    @media (max-width: 768px) {
+      .blog-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .blog-sidebar { display: none; }
+    }
+    .blog-body {
+      min-width: 0;
+    }
+    .blog-sidebar {
+      position: sticky;
+      top: 96px;
+    }
+    .blog-toc {
+      background: var(--black-3);
+      border: 1px solid var(--black-4);
+      padding: 24px 28px;
+    }
+    .blog-toc-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--black-4);
+    }
+    .blog-toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .toc-link {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      padding: 6px 0;
+      line-height: 1.4;
+      border-bottom: none;
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .toc-link:hover {
+      color: var(--yellow);
+      padding-left: 6px;
+    }
+    .toc-link.active {
+      color: var(--yellow);
+      font-weight: 500;
+    }
+
+    </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -247,6 +315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <article>
     <div class="container">
+    <div class="blog-layout">
       <div class="blog-body">
 
         <p>If you've been doing digital marketing in Myanmar for any length of time, you know the default answer to almost every brief: Facebook. Run a campaign? Facebook. Build brand awareness? Facebook. Launch a product? Boost a post on Facebook and call it a strategy.</p>
@@ -257,7 +326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <p>I've spent over nine years doing digital marketing in Myanmar, running performance campaigns for clients across retail, FMCG, financial services, automotive, education, and public health. What I'm seeing now, backed by both real campaign data and credible research, points to a market at an inflection point. This piece is my attempt to map where things actually stand, not just where the conventional wisdom says they are.</p>
 
-        <h2>Myanmar by the Numbers in 2026</h2>
+        <h2 id="myanmar-by-the-numbers-in-2026">Myanmar by the Numbers in 2026</h2>
 
         <p>Before we get into the platform dynamics, it's worth grounding ourselves in the scale of this market. Myanmar is not a small opportunity.</p>
 
@@ -320,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="blog-chart-source">Sources: DataReportal Digital 2026: Myanmar; Magnify Plus Research (2025); GSMA Intelligence</div>
         </div>
 
-        <h2>The Platform Shift Nobody Wants to Talk About</h2>
+        <h2 id="the-platform-shift-nobody-wants-to-talk-about">The Platform Shift Nobody Wants to Talk About</h2>
 
         <p>Here's the number that changes how you should think about this market: before the 2021 coup, Facebook's advertising reach in Myanmar exceeded <strong>21 million users</strong>. Today, it sits at approximately <strong>13.1 million</strong>.<span class="blog-citation">[1][2]</span> That's a loss of roughly 8 million reachable users, and it didn't happen gradually. It happened because Facebook became difficult to access without a VPN following internet restrictions, and a significant portion of the audience simply moved on to platforms that worked without one.</p>
 
@@ -370,7 +439,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>"Facebook's user count in Myanmar has dropped from over 21 million pre-coup to around 13 million today. TikTok, which requires no VPN, now reaches 19.6 million users and is growing at 18% year-on-year. The platform hierarchy has already flipped. Most marketing strategies haven't caught up."</p>
         </div>
 
-        <h2>TikTok Is Already Here, Just Not Officially</h2>
+        <h2 id="tiktok-is-already-here-just-not-officially">TikTok Is Already Here, Just Not Officially</h2>
 
         <p>This is the part that most market reports miss entirely, because it requires being in the market rather than observing it from the outside.</p>
 
@@ -415,7 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="blog-chart-source">Sources: DataReportal Digital 2026: Myanmar; Nexlabs internal campaign data (2026); Magnify Plus Research (2025)</div>
         </div>
 
-        <h2>Who Is Actually Online in Myanmar Right Now</h2>
+        <h2 id="who-is-actually-online-in-myanmar-right-now">Who Is Actually Online in Myanmar Right Now</h2>
 
         <p>Understanding the Myanmar digital consumer in 2026 is essential for any brand trying to reach them effectively. A few things stand out.</p>
 
@@ -481,7 +550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="blog-chart-source">Source: Magnify Plus Research, State of Digital Consumers in Myanmar, December 2025</div>
         </div>
 
-        <h2>The AI and AEO Angle: A Signal Most Marketers Are Missing</h2>
+        <h2 id="the-ai-and-aeo-angle-a-signal-most-marketers-are-m">The AI and AEO Angle: A Signal Most Marketers Are Missing</h2>
 
         <p>Here's a forward-looking point that almost no one in Myanmar's marketing ecosystem is talking about yet, but they should be.</p>
 
@@ -495,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <p>For anyone with regional ambitions or younger target demographics, this is worth taking seriously today.</p>
 
-        <h2>What This Means for Your Strategy in 2026</h2>
+        <h2 id="what-this-means-for-your-strategy-in-2026">What This Means for Your Strategy in 2026</h2>
 
         <p>Let me be direct about what I think the right approach looks like, based on what I've seen work and what I've seen fail.</p>
 
@@ -513,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>"Scaling effectively is not always about putting more investment into the same channel you're already running. Sometimes it means doing less on one channel and expanding your reach across several. Channel diversification in Myanmar isn't a nice-to-have. Given the platform volatility this market has already experienced, it's a risk management decision."</p>
         </div>
 
-        <h2>Diversify or Stay Exposed</h2>
+        <h2 id="diversify-or-stay-exposed">Diversify or Stay Exposed</h2>
 
         <p>Myanmar's digital market is at a genuinely interesting moment. Internet penetration has crossed 70%. The market has moved from rapid expansion to behavioral maturity. The audience is young, mobile-first, socially active, and increasingly sophisticated in how it engages with brands online.</p>
 
@@ -539,6 +608,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
       </div>
+    <aside class="blog-sidebar">
+    <div class="blog-toc">
+      <div class="blog-toc-label">In this article</div>
+      <ul class="blog-toc-list">
+      <li><a href="#myanmar-by-the-numbers-in-2026" class="toc-link">Myanmar by the Numbers in 2026</a></li>
+      <li><a href="#the-platform-shift-nobody-wants-to-talk-about" class="toc-link">The Platform Shift Nobody Wants to Talk About</a></li>
+      <li><a href="#tiktok-is-already-here-just-not-officially" class="toc-link">TikTok Is Already Here, Just Not Officially</a></li>
+      <li><a href="#who-is-actually-online-in-myanmar-right-now" class="toc-link">Who Is Actually Online in Myanmar Right Now</a></li>
+      <li><a href="#the-ai-and-aeo-angle-a-signal-most-marketers-are-m" class="toc-link">The AI and AEO Angle: A Signal Most Marketers Are Missing</a></li>
+      <li><a href="#what-this-means-for-your-strategy-in-2026" class="toc-link">What This Means for Your Strategy in 2026</a></li>
+      <li><a href="#diversify-or-stay-exposed" class="toc-link">Diversify or Stay Exposed</a></li>
+      </ul>
+    </div>
+  </aside>
+    </div>
     </div>
   </article>
 
@@ -571,5 +655,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="../js/main.js"></script>
 
   
+
+  <script>
+  (function() {
+    var links = document.querySelectorAll('.toc-link');
+    if (!links.length) return;
+    var headings = [];
+    links.forEach(function(l) {
+      var id = l.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ el: el, link: l });
+    });
+    function onScroll() {
+      var scrollY = window.scrollY + 120;
+      var active = null;
+      headings.forEach(function(h) {
+        if (h.el.offsetTop <= scrollY) active = h;
+      });
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (active) active.link.classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  </script>
+
 </body>
 </html>
