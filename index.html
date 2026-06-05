@@ -213,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const p = proj(lon, lat);
         if (p.x < 0 || p.x > w || p.y < 0 || p.y > h) return;
         ctx.beginPath(); ctx.arc(p.x, p.y, 1.1, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(200,75,49,0.12)'; ctx.fill();
+        ctx.fillStyle = 'rgba(17,17,16,0.18)'; ctx.fill();
       });
 
       // Connection arcs
@@ -223,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const mx = (pa.x + pb.x) / 2;
         const my = (pa.y + pb.y) / 2 - Math.hypot(pb.x - pa.x, pb.y - pa.y) * 0.18;
         ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.quadraticCurveTo(mx, my, pb.x, pb.y);
-        ctx.strokeStyle = 'rgba(200,75,49,0.08)'; ctx.lineWidth = 0.6; ctx.stroke();
+        ctx.strokeStyle = 'rgba(17,17,16,0.12)'; ctx.lineWidth = 0.7; ctx.stroke();
       });
 
       // Traveling dots
@@ -236,7 +236,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const px = (1-prog)*(1-prog)*pa.x + 2*(1-prog)*prog*mx + prog*prog*pb.x;
         const py = (1-prog)*(1-prog)*pa.y + 2*(1-prog)*prog*my + prog*prog*pb.y;
         ctx.beginPath(); ctx.arc(px, py, 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(200,75,49,' + (Math.sin(tr.t * Math.PI) * 0.85) + ')'; ctx.fill();
+        ctx.fillStyle = 'rgba(200,75,49,' + (0.4 + Math.sin(tr.t * Math.PI) * 0.6) + ')'; ctx.fill();
       });
 
       // Location dots + pulse + callout labels
@@ -248,14 +248,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         [0, 75].forEach(offset => {
           const lf = (pulseFrames[i] + offset) % 170, progress = lf / 170;
           ctx.beginPath(); ctx.arc(p.x, p.y, progress * 22, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(200,75,49,' + ((1 - progress) * 0.25) + ')';
+          ctx.strokeStyle = 'rgba(200,75,49,' + ((1 - progress) * 0.45) + ')';
           ctx.lineWidth = 0.5; ctx.stroke();
         });
 
         // Dot
         ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
         ctx.fillStyle = '#FAFAF8'; ctx.fill();
-        ctx.strokeStyle = 'rgba(200,75,49,0.8)'; ctx.lineWidth = 1.2; ctx.stroke();
+        ctx.strokeStyle = '#C84B31'; ctx.lineWidth = 1.5; ctx.stroke();
         ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, Math.PI * 2);
         ctx.fillStyle = '#C84B31'; ctx.fill();
 
@@ -273,7 +273,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(lx, ly);
-        ctx.strokeStyle = 'rgba(200,75,49,0.18)';
+        ctx.strokeStyle = 'rgba(17,17,16,0.25)';
         ctx.lineWidth = 0.7;
         ctx.stroke();
 
