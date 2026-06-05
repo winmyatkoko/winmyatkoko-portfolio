@@ -832,9 +832,12 @@ p { color: #2A2825; font-weight: 300; max-width: 64ch; }
 }
 @media (max-width: 640px) { .results-strip { grid-template-columns: 1fr; } }
 .result-card {
-  background: var(--black-3);
+  background: var(--black-2);
   padding: 36px;
   border-top: 2px solid var(--yellow);
+  border-left: 1px solid var(--black-4);
+  border-right: 1px solid var(--black-4);
+  border-bottom: 1px solid var(--black-4);
 }
 .result-card-number {
   font-family: var(--font-display);
@@ -871,7 +874,7 @@ p { color: #2A2825; font-weight: 300; max-width: 64ch; }
 .case-body p {
   font-size: 0.975rem;
   line-height: 1.85;
-  color: #2A2825;
+  color: var(--white-2);
   margin-bottom: 16px;
   max-width: none;
 }
@@ -1248,6 +1251,32 @@ p { color: #2A2825; font-weight: 300; max-width: 64ch; }
 }
 
 
+
+/* ── Prose links ── */
+.case-body a,
+.article-body a,
+.positioning-text a {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-decoration-color: rgba(200,75,49,0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.case-body a:hover,
+.article-body a:hover,
+.positioning-text a:hover {
+  text-decoration-color: var(--yellow);
+}
+
+/* ── Bold in body text ── */
+.case-body strong,
+.case-body b,
+.article-body strong,
+.article-body b {
+  font-weight: 700;
+  color: var(--white);
+}
+
 /* ── Testimonials ── */
 .testimonials-section {
   padding: 80px 0 100px;
@@ -1355,6 +1384,32 @@ p { color: #2A2825; font-weight: 300; max-width: 64ch; }
   .ngo-static-item:nth-child(3) { border-right: 1px solid var(--black-4); }
 }
 
+
+
+/* ── Prose links ── */
+.case-body a,
+.article-body a,
+.positioning-text a {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-decoration-color: rgba(200,75,49,0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.case-body a:hover,
+.article-body a:hover,
+.positioning-text a:hover {
+  text-decoration-color: var(--yellow);
+}
+
+/* ── Bold in body text ── */
+.case-body strong,
+.case-body b,
+.article-body strong,
+.article-body b {
+  font-weight: 700;
+  color: var(--white);
+}
 
 /* ── Testimonials ── */
 .testimonials-section {
