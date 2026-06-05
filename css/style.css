@@ -1156,19 +1156,33 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 .hero-actions-centered { justify-content: center; }
 
 /* ── Hero full width map ── */
-.hero-map-fullwidth {
-  position: relative;
-  flex: 1;
-  min-height: 0;
+.hero-map-outer {
   width: 100%;
+  position: relative;
   z-index: 1;
   overflow: hidden;
+  background: var(--black);
+}
+.hero-map-fullwidth {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .hero-map-fullwidth {
+    height: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-map-fullwidth {
+    height: 240px;
+  }
 }
 #hero-map {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 240px;
 }
 
 /* Map overlay — bottom left */
@@ -1237,6 +1251,60 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 }
 
 
+
+/* ── NGO static grid ── */
+.ngo-static-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+.ngo-static-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  height: 120px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.ngo-static-item:last-child {
+  border-right: none;
+}
+.ngo-static-item img {
+  height: 72px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(20%) brightness(1.1);
+  opacity: 0.9;
+  transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+}
+.ngo-static-item:hover img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.06);
+}
+@media (max-width: 768px) {
+  .ngo-static-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ngo-static-item {
+    padding: 0 24px;
+    height: 88px;
+  }
+  .ngo-static-item img {
+    height: 48px;
+    max-width: 120px;
+  }
+  .ngo-static-item:nth-child(2) {
+    border-right: none;
+  }
+  .ngo-static-item:nth-child(3) {
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+}
+
 /* ── Testimonials ── */
 .testimonials-section {
   padding: 80px 0 100px;
@@ -1244,11 +1312,14 @@ p { color: #D8D4CC; font-weight: 300; max-width: 64ch; }
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
   margin-top: 48px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
   .testimonials-grid { grid-template-columns: 1fr; }
 }
 .testimonial-card {
