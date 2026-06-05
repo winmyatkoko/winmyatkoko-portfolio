@@ -167,8 +167,8 @@ p { color: var(--white-2); font-weight: 300; }
   .nav-links {
     position: fixed;
     top: var(--nav-height); left: 0; right: 0;
-    background: #111111;
-    border-bottom: 1px solid rgba(200,75,49,0.12);
+    background: var(--black);
+    border-bottom: 1px solid rgba(200,75,49,0.15);
     flex-direction: column;
     gap: 0;
     padding: 8px 0 16px;
@@ -184,7 +184,7 @@ p { color: var(--white-2); font-weight: 300; }
     pointer-events: all;
   }
   .nav-links li {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(17,17,16,0.08);
   }
   .nav-links li:last-child {
     border-bottom: none;
@@ -222,6 +222,23 @@ p { color: var(--white-2); font-weight: 300; }
     background: var(--yellow);
     color: var(--black);
   }
+}
+
+
+@media (max-width: 640px) {
+  .work-row {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .work-row-left {
+    gap: 16px;
+    width: 100%;
+  }
+  .work-row-year { display: none; }
+  .work-row-arrow { margin-left: auto; }
+  .work-row-tags { margin-top: 4px; }
+  .tag { font-size: 0.6rem; padding: 3px 8px; }
 }
 
 /* ── Hero ── */
