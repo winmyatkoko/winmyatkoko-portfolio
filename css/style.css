@@ -742,6 +742,46 @@ p { color: var(--white-2); font-weight: 300; }
 }
 .skill-item:hover { color: var(--white); border-color: rgba(200,75,49,0.2); }
 
+/* Systems I've Built */
+.systems-list {
+  display: grid;
+  gap: 24px;
+}
+.system-item {
+  padding-left: 16px;
+  border-left: 2px solid rgba(200,75,49,0.25);
+}
+.system-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.system-org {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.system-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+  margin: 0;
+  max-width: 68ch;
+}
+@media (max-width: 640px) {
+  .system-org { display: block; margin-left: 0; margin-top: 4px; }
+}
+
 /* Certifications */
 .certs-section { padding: 60px 0; border-top: 1px solid rgba(17,17,16,0.08); }
 .cert-list { margin-top: 36px; }
