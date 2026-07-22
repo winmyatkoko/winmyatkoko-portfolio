@@ -224,7 +224,6 @@ p { color: var(--white-2); font-weight: 300; }
   }
 }
 
-
 @media (max-width: 640px) {
   .work-row {
     flex-wrap: wrap;
@@ -892,10 +891,6 @@ p { color: var(--white-2); font-weight: 300; }
   padding: 80px 0 120px;
 }
 
-
-
-
-
 .case-body h3 {
   font-size: 0.7rem;
   font-weight: 600;
@@ -1285,8 +1280,6 @@ p { color: var(--white-2); font-weight: 300; }
   .hero-map-overlay { bottom: 12px; left: 12px; padding: 8px 12px; }
 }
 
-
-
 /* ── Prose links ── */
 .case-body a,
 .article-body a,
@@ -1419,8 +1412,6 @@ p { color: var(--white-2); font-weight: 300; }
   .ngo-static-item:nth-child(3) { border-right: 1px solid var(--black-4); }
 }
 
-
-
 /* ── Prose links ── */
 .case-body a,
 .article-body a,
@@ -1518,14 +1509,4 @@ p { color: var(--white-2); font-weight: 300; }
   font-weight: 300;
   margin-top: 3px;
   line-height: 1.45;
-}
-.testimonial-relationship {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  opacity: 0.8;
-  margin-top: 5px;
 }
